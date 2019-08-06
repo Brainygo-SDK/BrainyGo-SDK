@@ -103,7 +103,7 @@
 
 **Set schema https**
 ```java
-      BrainyGoSDK.setSchema(true);
+    BrainyGoSDK.setSchema(true);
 ```
 
 ## <a name="step3">2.3 GDPR</a>  
