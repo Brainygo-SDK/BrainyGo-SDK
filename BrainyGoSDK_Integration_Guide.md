@@ -8,7 +8,11 @@
 
     [2.2 Initialize the BrainyGo SDK](#step2)
 
-    [2.3 Android code obfuscation](#step3)
+    [2.3 GDPR](#step3)
+    
+    [2.4 Child Oriented Settings](#step4)
+
+    [2.5 Android code obfuscation](#step5)
     
 3. [Integration Notes](#note)
 
@@ -97,6 +101,13 @@
     BrainyGoSDK.initialize(context, "Your slotID");
 ```
 
+**Set schema https**
+```java
+      BrainyGoSDK.setSchema(true);
+```
+
+## <a name="step3">2.3 GDPR</a>  
+
 **Use this interface to upload consent from affected users for GDPR**
 
 ```java
@@ -117,12 +128,20 @@
             }
      });
 ```
-**Set schema https**
-```java
-      BrainyGoSDK.setSchema(true);
-```
 
-## <a name="step3">2.3 Obfuscation Configuration</a> 
+## <a name="step4">2.4 Child Oriented Settings</a>  
+In order to comply with the provisions of the Children's Online Privacy Protection Act (COPPA), we provide the setIsChildDirected interface.
+
+Developers can use this interface to indicate that your content is child-oriented. We will stop personalized advertising and put in advertisements suitable for children，which may result in no filling.
+
+``` java
+     //child-oriented
+     BrainyGoSDK.setIsChildDirected(this, true);
+```
+Warning:
+1. It is recommended to call this interface before requesting advertisements.
+
+## <a name="step5">2.5 Obfuscation Configuration</a> 
 > If it needs to obfuscate the codes in building the project process, you should add the following codes into the proguard file:
 
 ``` java
@@ -183,6 +202,7 @@ public class MyCTAdEventListener extends CTAdEventListener {
     }
 }
 ```
+## <a name="request">4.Request Ad</a>
 
 ## <a name="native">4.1 Native Ads Integration</a>
 
